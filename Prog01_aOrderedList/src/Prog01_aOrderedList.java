@@ -66,7 +66,17 @@ public class Prog01_aOrderedList {
 
     // Step 4: Populating Ordered List
     public static PrintWriter getOutputFile(String userPrompt) {
-		return null;
-        // Implement this method similarly to getInputFile
+        PrintWriter outputFile = null;
+        Scanner scanner = new Scanner(System.in);
+        while (outputFile == null) {
+            try {
+                System.out.print(userPrompt);
+                String filename = scanner.nextLine();
+                outputFile = new PrintWriter(filename);
+            } catch (FileNotFoundException e) {
+                System.out.println("Unable to create or write to the specified output file.");
+            }
+        }
+        return outputFile;
     }
 }

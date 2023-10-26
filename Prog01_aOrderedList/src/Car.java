@@ -1,29 +1,39 @@
-public class Car implements Comparable<Car> {
+class Car implements Comparable<Car> {
     private String make;
     private int year;
     private int price;
 
     public Car(String make, int year, int price) {
-        // Constructor implementation
+        this.make = make;
+        this.year = year;
+        this.price = price;
     }
 
     public String getMake() {
-        // Implementation
+        return make;
     }
 
     public int getYear() {
-        // Implementation
+        return year;
     }
 
     public int getPrice() {
-        // Implementation
+        return price;
     }
 
+    @Override
     public int compareTo(Car other) {
-        // Comparison logic
+        if (!make.equals(other.make)) {
+            return make.compareTo(other.make);
+        }
+        if (year != other.year) {
+            return year - other.year;
+        }
+        return price - other.price;
     }
 
+    @Override
     public String toString() {
-        // Implementation
+        return "Make: " + make + ", Year: " + year + ", Price: " + price;
     }
 }
